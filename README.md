@@ -1,4 +1,4 @@
-# Universal-Optimizer-for-Android-Snapdragon — Beta 1 (Root Only)
+# Universal-Optimizer-for-Android-Snapdragon—Beta-1 (Root Only)
 
 Script ini adalah kumpulan optimasi sistem untuk perangkat Android yang sudah di-root. Tujuannya adalah untuk meningkatkan performa, mengurangi lag, dan membersihkan file-file sampah. **PERHATIAN: Penggunaan script ini memerlukan akses root dan mungkin memiliki risiko. Lakukan dengan hati-hati dan risiko ditanggung sendiri.**
 
