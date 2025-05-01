@@ -130,11 +130,9 @@ sleep 1
 # --- Aggressive User App Cleanup ---
 # This section aggressively closes user apps in the background as a fallback.
 
-# Ensure all previous changes are written to disk.
 echo "Syncing file systems..."
 su -c "sync"
 
-# Free up memory by dropping page cache, dentries, and inodes.
 echo "Freeing memory (drop caches)..."
 su -c "echo 3 > /proc/sys/vm/drop_caches"
 
@@ -149,12 +147,10 @@ if command -v ps >/dev/null 2>&1; then
             continue
         fi
 
-        # Forcefully terminate the process using SIGKILL.
         su -c "kill -9 $app_pid" 2>/dev/null || echo "Warning: Kill failed: $app_pid"
     done
 fi
 
-# Stop any running foreground jobs.
 pids=$(jobs -p)
 if [ -n "$pids" ]; then
     kill $pids
@@ -163,13 +159,11 @@ else
     echo "No foreground jobs running."
 fi
 
-# Terminate all processes owned by the current user (gracefully with SIGTERM, except the script itself).
 pkill -u $(whoami) --ignore-case --signal SIGTERM -o $$
 echo "Terminated user processes (gracefully)."
 
 sleep 2
 
-# Find PIDs of apps still running by checking file access in /data/app.
 running_pids=$(su -c "lsof | grep /data/app | awk '{print \$2}' | sort -u")
 
 if [ -z "$running_pids" ]; then
@@ -179,7 +173,6 @@ else
         [ -z "$app_pid" ] && continue
         [ ! -d "/proc/$app_pid" ] && continue
 
-        # Get the app package name from the process command line.
         app_name=$(basename "$(cat /proc/$app_pid/cmdline | tr -d '\0')")
 
         if is_whitelisted "$app_name"; then
@@ -187,7 +180,6 @@ else
             continue
         fi
 
-        # Forcefully terminate remaining apps as a last resort.
         su -c "kill -9 $app_pid" 2>/dev/null || echo "Warning: Force kill failed: $app_pid ($app_name)"
     done
 fi
