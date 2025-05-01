@@ -1,4 +1,4 @@
-# Universal-Optimizer-for-Android-Snapdragon (Root Only)
+# Universal-Optimizer-for-Android-Snapdragon — Beta 1 (Root Only)
 
 Script ini adalah kumpulan optimasi sistem untuk perangkat Android yang sudah di-root. Tujuannya adalah untuk meningkatkan performa, mengurangi lag, dan membersihkan file-file sampah. **PERHATIAN: Penggunaan script ini memerlukan akses root dan mungkin memiliki risiko. Lakukan dengan hati-hati dan risiko ditanggung sendiri.**
 
@@ -20,11 +20,11 @@ Script ini adalah kumpulan optimasi sistem untuk perangkat Android yang sudah di
 
 ## Cara Penggunaan
 
-1.  Pastikan perangkat Android kamu sudah memiliki akses root.
-2.  Download script `universal_optimizer.sh` (atau nama file yang kamu gunakan).
-3.  Pindahkan script ke perangkat Android kamu (misalnya menggunakan `adb push`).
-4.  Buka aplikasi terminal di Android (seperti Termux).
-5.  Navigasi ke direktori tempat kamu menyimpan script.
+1.  Pastikan perangkat Android yang digunakan sudah memiliki akses root.
+2.  Download script `Universal-Optimizer-for-Android-Snapdragon.sh`.
+3.  Pindahkan script ke perangkat Android yang digunakan (misalnya menggunakan `adb push`).
+4.  Buka aplikasi terminal di Android (seperti Termux atau Terminal Emulator).
+5.  Navigasi ke direktori tempat script di simpan.
 6.  Berikan izin eksekusi pada script:
     ```bash
     chmod +x universal_optimizer.sh
@@ -33,18 +33,18 @@ Script ini adalah kumpulan optimasi sistem untuk perangkat Android yang sudah di
     ```bash
     su -c "./universal_optimizer.sh"
     ```
-8.  (Opsional) Kamu bisa menentukan I/O scheduler saat menjalankan script:
+8.  (Opsional) Anda bisa menentukan I/O scheduler saat menjalankan script:
     ```bash
     su -c "./universal_optimizer.sh cfq"
     ```
-    Ganti `cfq` dengan scheduler lain yang tersedia di perangkat kamu. Jika tidak diisi, script akan meminta input secara interaktif.
+    Ganti `cfq` dengan scheduler lain yang tersedia di perangkat anda. Jika tidak diisi, script akan meminta input secara interaktif.
 
 ## Penjelasan Script
 
 Script ini melakukan beberapa optimasi dengan perintah-perintah `su` (super user). Berikut penjelasan singkat beberapa bagian penting:
 
 * Bagian awal script mengatur tweak kernel dan properti sistem untuk meningkatkan responsivitas.
-* Bagian I/O scheduler memungkinkan kamu memilih scheduler yang berbeda untuk manajemen disk.
+* Bagian I/O scheduler memungkinkan anda memilih scheduler yang berbeda untuk manajemen disk.
 * Pembersihan cache dan file sampah membantu membebaskan ruang penyimpanan dan memori.
 * Optimasi Dalvik/ART VM bertujuan untuk meningkatkan kinerja aplikasi.
 * Penonaktifan dan pematian aplikasi GMS (jika diaktifkan) dapat membantu mengurangi penggunaan sumber daya di latar belakang.
@@ -59,10 +59,10 @@ init zygote zygote64 system_server servicemanager hwservicemanager vndserviceman
 ## Peringatan
 
 * **Akses Root Diperlukan:** Script ini hanya berfungsi pada perangkat Android yang sudah di-root.
-* **Risiko Penggunaan:** Penggunaan script ini dapat menyebabkan masalah pada sistem jika tidak dilakukan dengan benar. Backup data penting kamu sebelum menjalankan script ini.
-* **Garansi Batal:** Melakukan root dan menjalankan script kustom dapat membatalkan garansi perangkat kamu.
+* **Risiko Penggunaan:** Penggunaan script ini dapat menyebabkan masalah pada sistem jika tidak dilakukan dengan benar. Backup data penting anda sebelum menjalankan script ini.
+* **Garansi Batal:** Melakukan root dan menjalankan script kustom dapat membatalkan garansi perangkat.
 * **Hati-hati dengan Perintah `kill -9`:** Perintah `kill -9` mematikan proses secara paksa dan dapat menyebabkan hilangnya data atau masalah sistem lainnya jika digunakan secara tidak tepat. Script ini menggunakan perintah ini sebagai langkah terakhir untuk membersihkan aplikasi.
 
 ## Kontribusi
 
-Jika kamu memiliki ide untuk meningkatkan script ini, jangan ragu untuk memberikan kontribusi melalui pull request.
+Jika anda memiliki ide untuk meningkatkan script ini, jangan ragu untuk memberikan kontribusi melalui pull request.
