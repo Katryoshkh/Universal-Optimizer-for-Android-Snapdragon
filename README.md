@@ -5,7 +5,7 @@ Script ini adalah kumpulan optimasi sistem untuk perangkat Android yang sudah di
 ## Fitur Utama
 
 * **Light Scheduler Tweaks:** Menonaktifkan `sched_autogroup_enabled` untuk mengurangi latency.
-* **Reduce CPU Latency:** Mengaktifkan `sched_child_runs_first` untuk prioritas thread anak.
+* **Reduce CPU Latency:** Mengaktifkan `sched_child_runs_first` untuk prioritas thread child.
 * **Boosting Performance While Charging:** Meningkatkan performa saat perangkat sedang diisi daya.
 * **Optimasi I/O Scheduler:** Memungkinkan pemilihan I/O scheduler dan mengatur `read_ahead_kb`.
 * **Clear System Cache:** Membersihkan cache sistem untuk membebaskan memori.
