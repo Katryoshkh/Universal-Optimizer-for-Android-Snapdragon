@@ -22,18 +22,17 @@ Script ini adalah kumpulan optimasi sistem untuk perangkat Android yang sudah di
 
 1.  Pastikan perangkat Android yang digunakan sudah memiliki akses root.
 2.  Download script `Universal-Optimizer-for-Android-Snapdragon.sh`.
-3.  Pindahkan script ke perangkat Android yang digunakan (misalnya menggunakan `adb push`).
-4.  Buka aplikasi terminal di Android (seperti Termux atau Terminal Emulator).
-5.  Navigasi ke direktori tempat script di simpan.
-6.  Berikan izin eksekusi pada script:
+3.  Buka aplikasi terminal di Android (seperti Termux atau Terminal Emulator).
+4.  Navigasi ke direktori tempat script di simpan.
+5.  Berikan izin eksekusi pada script:
     ```bash
     chmod +x universal_optimizer.sh
     ```
-7.  Jalankan script dengan perintah `su` (super user):
+6.  Jalankan script dengan perintah `su` (super user):
     ```bash
     su -c "./universal_optimizer.sh"
     ```
-8.  (Opsional) Anda bisa menentukan I/O scheduler saat menjalankan script:
+7.  (Opsional) Anda bisa menentukan I/O scheduler saat menjalankan script:
     ```bash
     su -c "./universal_optimizer.sh cfq"
     ```
@@ -41,28 +40,28 @@ Script ini adalah kumpulan optimasi sistem untuk perangkat Android yang sudah di
 
 ## Penjelasan Script
 
-Script ini melakukan beberapa optimasi dengan perintah-perintah `su` (super user). Berikut penjelasan singkat beberapa bagian penting:
+Script melakukan beberapa optimasi dengan perintah-perintah `su` (super user). Berikut penjelasan singkat beberapa bagian penting:
 
 * Bagian awal script mengatur tweak kernel dan properti sistem untuk meningkatkan responsivitas.
 * Bagian I/O scheduler memungkinkan anda memilih scheduler yang berbeda untuk manajemen disk.
 * Pembersihan cache dan file sampah membantu membebaskan ruang penyimpanan dan memori.
 * Optimasi Dalvik/ART VM bertujuan untuk meningkatkan kinerja aplikasi.
-* Penonaktifan dan pematian aplikasi GMS (jika diaktifkan) dapat membantu mengurangi penggunaan sumber daya di latar belakang.
+* Penonaktifan dan mematikan aplikasi GMS (jika diaktifkan) yang dapat membantu mengurangi penggunaan sumber daya di latar belakang.
 * Bagian akhir script secara agresif menutup aplikasi pengguna untuk membebaskan memori.
+> Hapus bagian yang di tandai sebagai agresif untuk menghindari proses yang tidak diinginkan terbunuh.
 
 ## Daftar Aplikasi yang Diizinkan (Whitelist)
 
-Beberapa aplikasi sistem penting dimasukkan ke dalam daftar putih agar tidak dimatikan secara paksa oleh script:
+Beberapa aplikasi sistem penting dimasukkan ke dalam daftar putih agar tidak dimatikan secara paksa oleh script, antara lain:
 
 init zygote zygote64 system_server servicemanager hwservicemanager vndservicemanager surfaceflinger com.android.systemui com.android.settings android.hardware.keymaster@4.0-service-qti android.hardware.bluetooth@1.0-service-qti android.hardware.camera.provider@2.4-service android.hardware.gnss@2.0-service-qti android.hardware.graphics.allocator@2.0-service android.hardware.graphics.composer@2.1-service android.hardware.health@2.1-service android.hardware.sensors@1.0-service android.hardware.usb@1.0-service android.hardware.wifi@1.0-service com.xiaomi.parts vendor.display.color@1.0-service vendor.qti.hardware.soter@1.0-service vendor.qti.hardware.vibrator.service vendor.qti.hardware.tui_comm@1.0-service-qti
 
 ## Peringatan
 
 * **Akses Root Diperlukan:** Script ini hanya berfungsi pada perangkat Android yang sudah di-root.
-* **Risiko Penggunaan:** Penggunaan script ini dapat menyebabkan masalah pada sistem jika tidak dilakukan dengan benar. Backup data penting anda sebelum menjalankan script ini.
-* **Garansi Batal:** Melakukan root dan menjalankan script kustom dapat membatalkan garansi perangkat.
+* **Risiko Penggunaan:** Penggunaan script ini dapat menyebabkan masalah pada sistem jika tidak dilakukan dengan benar. Di rekomendasikan untuk membackup data penting sebelum menjalankan script ini.
 * **Hati-hati dengan Perintah `kill -9`:** Perintah `kill -9` mematikan proses secara paksa dan dapat menyebabkan hilangnya data atau masalah sistem lainnya jika digunakan secara tidak tepat. Script ini menggunakan perintah ini sebagai langkah terakhir untuk membersihkan aplikasi.
 
 ## Kontribusi
 
-Jika anda memiliki ide untuk meningkatkan script ini, jangan ragu untuk memberikan kontribusi melalui pull request.
+Skrip ini masih dalam tahap pengembangan awal, dan masih memiliki banyak sekali bug yang perlu di perbaiki. Jika anda memiliki ide untuk meningkatkan script ini, jangan ragu untuk memberikan kontribusi melalui Issue atau pull request!
